@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Confirm email{% endblock %}
+
+{% block content %}
+    <h1>Confirm email</h1>
+    <hr>
+
+    <h3>We send you email to verify your account</h3>
+    <a href="{% url 'profile' %}"><button>Profile</button></a>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+    <h1>Profile</h1>
+    <ul>
+        <li>id: {{ user.id }}</li>
+        <li>username: {{ user.username }}</li>
+
+        {% if user.first_name %}
+            <li>firstname: {{ user.first_name }}</li>
+        {% else %}
+            <li>firstname: none</li>
+        {% endif %}
+
+        {% if user.last_name %}
+            <li>lastname: {{ user.last_name }}</li>
+        {% else %}
+            <li>lastname: none</li>
+        {% endif %}
+
+        {% if user.email %}
+            <li>email: {{ user.email }}</li>
+        {% else %}
+            <li>email: none</li>
+        {% endif %}
+        <a href="{% url 'password_change' %}"><button>Change password</button></a>
+    </ul>
+
+    <hr>
+
+
+{% endblock %}

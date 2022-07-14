@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Subs{% endblock %}
+
+{% block content %}
+    <h1>Subs</h1>
+    <hr>
+    <div>Total cost: {{ sum_cost }}$</div>
+    <a href="{% url 'add-sub' %}"><button>Add sub</button></a>
+    {% for el in data %}
+            <div>
+                <h3>{{ el.name }}</h3>
+                <p>Sub costs - {{ el.cost }}</p>
+                <p>Sub distributor - {{ el.distributor }}</p>
+                <p>Sub start date - {{ el.start_date }}</p>
+                <p>Sub user - {{ el.user }}</p>
+            </div>
+    {% endfor %}
+
+{% endblock %}

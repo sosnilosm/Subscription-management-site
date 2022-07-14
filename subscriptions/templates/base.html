@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body class="container">
+    <nav class="topnav">
+        <ul class="menu-main">
+            <li class="list-group-item"><a href="{% url 'main' %}">Home</a></li>
+
+            {% if user.is_authenticated %}
+                <li class="list-group-item"><a href="{% url 'subs' %}">Subs</a></li>
+                <li class="list-group-item"><a href="{% url 'profile' %}">Profile</a></li>
+                <li class="list-group-item"><a href="{% url 'logout' %}">Log out</a></li>
+            {% else %}
+                <li class="list-group-item"><a href="{% url 'login' %}">Log in</a></li>
+                <li class="list-group-item"><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+
+        </ul>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <aside>
+
+    </aside>
+</body>
+</html>

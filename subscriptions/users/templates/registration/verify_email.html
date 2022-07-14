@@ -1,0 +1,15 @@
+{% autoescape off %}
+
+You're receiving this email because you requested a password reset for your user account at {{ site_name }}.
+
+Welcome {{ user.get_username }},
+
+Please go to the following page to verify your account:
+
+http://{{ domain }}{% url 'verify_email' uidb64=uid token=token %}
+
+Thanks for using our site!
+
+The {{ site_name }} team
+
+{% endautoescape %}
